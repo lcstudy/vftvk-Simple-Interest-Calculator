@@ -1,6 +1,5 @@
 function compute() {
-  var result = document.getElementById("result");
-  result.innerHTML = "";
+  clearResult()
   var principal = document.getElementById("principal").value;
   var rate = document.getElementById("rate").value;
   var years = document.getElementById("years").value;
@@ -11,8 +10,7 @@ function compute() {
     alert("Enter a positive number");
     document.getElementById("principal").focus();
   } else {
-    result.innerHTML =
-      "<br/>" +
+    document.getElementById("result").innerHTML =
       "If you deposit <mark>" +
       principal +
       "</mark><br/>" +
@@ -25,7 +23,14 @@ function compute() {
       "in the year <mark>" +
       year +
       "</mark>";
+    result.classList.add("result-border")
   }
+}
+
+function clearResult(){
+  var result = document.getElementById("result");
+  result.classList.remove("result-border")
+  result.innerHTML = "";
 }
 
 function updateRate() {
